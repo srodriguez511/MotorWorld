@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MotorWorld.DataAccessLayer.TripsClass>
+<table>
+    <tr>
+        <th>
+            Member
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TripName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikesOwned.BikeType.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikesOwned.BikeType.Model)
+        </th>
+        <th>
+            Starting City
+        </th>
+        <th>
+            Ending City
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikesOwned.BikeType.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikesOwned.BikeType.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WayPoints.First().City.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WayPoints.Last().City.city)
+            </td>
+        </tr>
+    }
+</table>

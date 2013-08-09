@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+}
+<div id="wrapper">
+    <div id="latestTrips">
+        <h1>
+            @Ajax.ActionLink("Click for here for the latest trips", "LatestTrips", "Trips", new AjaxOptions { UpdateTargetId = "latestTrips", InsertionMode = InsertionMode.Replace })
+        </h1>
+    </div>
+    <div id="searchWrapper">
+        <div id="search">
+            <p>
+                Search for a trip in a city near you!</p>
+            @using (Ajax.BeginForm("Search", "Trips",
+                new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResults" }))
+            {
+                <input type="text" name="city" data-autocomplete="@Url.Action("SearchAutoComplete", "Trips")"/>
+                <input type="submit" value="Search" />
+            }
+        </div>
+        <div id="searchResults">
+        </div>
+    </div>
+</div>
