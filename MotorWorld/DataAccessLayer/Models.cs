@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace MotorWorld.DataAccessLayer
 {
@@ -21,6 +22,7 @@ namespace MotorWorld.DataAccessLayer
     }
 
     [Table("Trips")]
+    [DataContract]
     public class TripsClass
     {
         [Key]
@@ -37,6 +39,7 @@ namespace MotorWorld.DataAccessLayer
     }
 
     [Table("WayPoints")]
+    [DataContract]
     public class WayPoints
     {
         [Key]
@@ -52,6 +55,7 @@ namespace MotorWorld.DataAccessLayer
     }
 
     [Table("Cities_extended")]
+    [DataContract]
     public class Cities
     {
         [Key]
@@ -67,6 +71,7 @@ namespace MotorWorld.DataAccessLayer
     }
 
     [Table("BikesOwned")]
+    [DataContract]
     public class BikesOwned
     {
         [Key]
@@ -74,18 +79,24 @@ namespace MotorWorld.DataAccessLayer
         public virtual int UserId { get; set; }
         [Key]
         [Column(Order = 1)]
+        [DataMember]
         public virtual int BikeId { get; set; }
 
-        public virtual ICollection<TripsClass> Trips { get; set; }     
+        public virtual ICollection<TripsClass> Trips { get; set; }
+        [DataMember]
         public virtual BikeTypes BikeType { get; set; }
         public virtual UserProfile User { get; set; }
     }
 
     [Table("BikeTypes")]
+    [DataContract]
     public class BikeTypes
     {
+        [DataMember]
         public virtual int Year { get; set; }
+        [DataMember]
         public virtual string Make { get; set; }
+        [DataMember]
         public virtual string Model { get; set; }
         [Key]
         public virtual int BikeId { get; set; }

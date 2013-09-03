@@ -7,14 +7,16 @@
 
 body
 {
-	background-color: #44bbcc;
-	border-top: solid 10px #000;
 	font-size: .85em;
 	font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
-	margin: 0;
 	padding: 0;
 }
 
+header
+{
+	height: 100px;
+	margin-bottom: 20px;
+}
 
 .float-left
 {
@@ -25,23 +27,6 @@ body
 {
 	float: right;
 }
-
-.clear-fix:after
-{
-	content: ".";
-	clear: both;
-	display: block;
-	height: 0;
-	visibility: hidden;
-}
-
-h1, h2, h3, h4, h5, h6
-{
-	color: black;
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
 
 /* main layout
 ----------------------------------------------------------*/
@@ -56,7 +41,7 @@ h1, h2, h3, h4, h5, h6
 	background-color: white;
 	clear: both;
 	padding-bottom: 35px;
-	min-height: 150px;
+	min-height: 200px;
 }
 
 header .content-wrapper
@@ -69,61 +54,27 @@ header .content-wrapper
 .site-title
 {
 	font-family: Rockwell, Consolas, "Courier New" , Courier, monospace;
-	font-size: 2.3em;
+	font-size: 0px;
 	margin: 0;
 }
 
-.site-title a, .site-title a:hover, .site-title a:active, .site-title a:link
+.site-title img
 {
-	background: none;
-	color: white;
-	outline: none;
-	text-decoration: none;
+	vertical-align: middle;
+	height: 55px;
 }
 
-
-/* login
-----------------------------------------------------------*/
-#login
-{
-	display: block;
-	font-size: .85em;
-	margin: 0 0 10px;
-	text-align: right;
-}
-
-#login a
-{
-	color:  White;
-	font-weight: bolder;
-	margin-left: 10px;
-	margin-right: 3px;
-	padding: 2px 3px;
-	text-decoration: none;
-}
-
-#login a:hover
-{
-	color: #447799;
-}
-
-#login a.username
-{
-	background: none;
-	margin: 0;
-	padding: 0;
-	text-decoration: underline;
-}
-
-#login li
-{
-	display: inline;
-	list-style: none;
-}
 
 
 /* menu
 ----------------------------------------------------------*/
+div#navmenu
+{
+	position: absolute;
+	top: 60px;
+	right: 250px;
+}
+
 ul#menu
 {
 	font-size: 1.3em;
@@ -134,11 +85,18 @@ ul#menu
 	text-decoration: none;
 }
 
+ul#menu img
+{
+	height: 25px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
 ul#menu li
 {
 	display: inline;
 	list-style: none;
-	padding-left: 15px;
+	font-size: 0px;
 }
 
 ul#menu li a
@@ -153,6 +111,27 @@ ul#menu li a:hover
 	background: transparent;
 }
 
+/*login menu*/
+div#login
+{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 200px;
+}
+
+div#login a
+{
+	text-decoration: none;
+}
+
+div#login img
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 20px;
+	vertical-align: middle;
+}
 
 /* login page */
 #loginForm
@@ -349,7 +328,7 @@ input[type="checkbox"].input-validation-error
 ----------------------------------------------------------*/
 table
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-family: "Lucida Sans Unicode" , "Lucida Grande" , Sans-Serif;
 	font-size: 12px;
 	width: 480px;
 	text-align: left;
@@ -370,7 +349,7 @@ th
 td
 {
 	padding: 8px;
-	background: #e8edff; 
+	background: #e8edff;
 	border-bottom: 1px solid #fff;
 	color: #669;
 	border-top: 1px solid transparent;
@@ -385,13 +364,7 @@ tr:hover td
 
 /*Home Page*/
 
-#wrapper
-{
-	padding: 10px;
-	border-top: 1px solider transparent;
-}
-
-#latestTrips 
+#latestTrips
 {
 	float: left;
 	padding: 10px;

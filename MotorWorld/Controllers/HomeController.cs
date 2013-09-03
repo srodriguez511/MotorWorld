@@ -9,11 +9,8 @@ namespace MotorWorld.Controllers
 {
     public class HomeController : Controller
     {
-        private IUnitOfWork _unitOfWork;
-
-        public HomeController(IUnitOfWork unitOfWork)
+        public HomeController()
         {
-            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index()

@@ -3,6 +3,8 @@ using Microsoft.Practices.Unity;
 using Unity.Mvc4;
 using MotorWorld.Interfaces;
 using MotorWorld.DataAccessLayer;
+using System.Data.Entity;
+using System.Web.Http;
 
 namespace MotorWorld
 {
@@ -11,8 +13,8 @@ namespace MotorWorld
         public static IUnityContainer Initialise()
         {
             var container = BuildUnityContainer();
-
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            DependencyResolver.SetResolver(new Unity.Mvc4.UnityDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
 
             return container;
         }
@@ -20,17 +22,11 @@ namespace MotorWorld
         private static IUnityContainer BuildUnityContainer()
         {
             var container = new UnityContainer();
-
-            container.RegisterType<IUnitOfWork, ConcreteUnitOfWork>();
-
-            RegisterTypes(container);
+            container
+                .RegisterType<IUnitOfWork, ConcreteUnitOfWork>()
+                .RegisterType<DbContext, ConcreteUnitOfWork>(new HierarchicalLifetimeManager()); 
 
             return container;
-        }
-
-        public static void RegisterTypes(IUnityContainer container)
-        {
-
         }
     }
 }
