@@ -9,8 +9,6 @@ using System.Web.Routing;
 using System.Data.Entity;
 using MotorWorld.DataAccessLayer;
 using WebMatrix.WebData;
-using System.Configuration;
-using System.Web.Configuration;
 
 namespace MotorWorld
 {
